@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+.padyam {font-size:small; color:blue;}
+.tika {color:red; display:block}
+.tippani {color:green; display:block}
+
+
+</style>
+
+</head>
+
+<body>
+
+<h1>My First Heading</h1>
+
+<p id='p1p' class='padyam'>My first paragraph.</p>
+<p id='p1t' class='tika'>My first paragraph.</p>
+<p id='p1b' class='tippani'>My first paragraph.</p>
+
+
+<script>
+ url = 'https://script.google.com/macros/s/AKfycbwgoZT4fWoP3D4XSrt3CcLL5O7nKo5CDC6nnWt1a3sXZEnT2mzMf5rcVk0wxOJIeIWBvA/exec'
+            async function getMyData() {
+                response = await fetch(url)
+                data = await response.json()
+                tempData = data["user"]
+
+document.getElementById('p1p').innerHTML=tempData[0].padyano+'<br>'+tempData[0].padyam.replace(/(?:\r\n|\r|\n)/g, '<br>')
+
+
+document.getElementById('p1t').innerHTML='టీక<br>' +tempData[0].tika
+
+document.getElementById('p1b').innerHTML='టిప్పణి<br>' + tempData[0].tippani
+
+}
+
+getMyData()
+
+
+
+
+
+</script>
+
+
+</body>
+</html>
+
